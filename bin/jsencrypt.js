@@ -1,4 +1,4 @@
-/*! JSEncrypt v2.3.1 | https://npmcdn.com/jsencrypt@2.3.1/LICENSE.txt */
+/*! JSEncrypt v2.3.2 | https://npmcdn.com/jsencrypt@2.3.2/LICENSE.txt */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD
@@ -79,6 +79,7 @@ function am3(i,x,w,j,c,n) {
   }
   return c;
 }
+/* NativeScript has no navigator object
 if(j_lm && (navigator.appName == "Microsoft Internet Explorer")) {
   BigInteger.prototype.am = am2;
   dbits = 30;
@@ -91,6 +92,9 @@ else { // Mozilla/Netscape seems to prefer am3
   BigInteger.prototype.am = am3;
   dbits = 28;
 }
+*/
+BigInteger.prototype.am = am3;
+dbits = 28;
 
 BigInteger.prototype.DB = dbits;
 BigInteger.prototype.DM = ((1<<dbits)-1);
@@ -1830,7 +1834,7 @@ JSX.env.parseUA = function(agent) {
         }));
     },
 
-    nav = navigator,
+    // nav = navigator,
     o = {
         ie: 0,
         opera: 0,
@@ -1845,14 +1849,14 @@ JSX.env.parseUA = function(agent) {
         ios: null,
         android: 0,
         webos: 0,
-        caja: nav && nav.cajaVersion,
+        // caja: nav && nav.cajaVersion,
         secure: false,
         os: null
 
     },
 
-    ua = agent || (navigator && navigator.userAgent),
-    loc = window && window.location,
+    ua = agent,// || (navigator && navigator.userAgent),
+    loc = false,// window && window.location,
     href = loc && loc.href,
     m;
 
@@ -4346,6 +4350,6 @@ JSEncrypt.prototype.getPublicKeyB64 = function () {
 };
 
 
-  JSEncrypt.version = '2.3.1';
+  JSEncrypt.version = '2.3.2';
   exports.JSEncrypt = JSEncrypt;
 });

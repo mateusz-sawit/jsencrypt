@@ -1,6 +1,6 @@
 {
   "name": "jsencrypt",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "A Javascript library to perform OpenSSL RSA Encryption, Decryption, and Key Generation.",
   "main": "bin/jsencrypt.js",
   "scripts": {
@@ -39,7 +39,5 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.5.3"
   },
-  "dependencies": {
-
-  }
+  "dependencies": {}
 }
