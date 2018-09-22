@@ -1,4 +1,4 @@
-/*! JSEncrypt v2.3.2 | https://npmcdn.com/jsencrypt@2.3.2/LICENSE.txt */
+/*! JSEncrypt v2.3.3 | https://npmcdn.com/jsencrypt@2.3.3/LICENSE.txt */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD
@@ -1287,6 +1287,7 @@ if(rng_pool == null) {
   rng_pool = new Array();
   rng_pptr = 0;
   var t;
+  /* NativeScript has no window or mouse
   if(window.crypto && window.crypto.getRandomValues) {
     // Extract entropy (2048 bits) from RNG if available
     var z = new Uint32Array(256);
@@ -1318,7 +1319,7 @@ if(rng_pool == null) {
     window.addEventListener("mousemove", onMouseMoveListener, false);
   else if (window.attachEvent)
     window.attachEvent("onmousemove", onMouseMoveListener);
-
+  */
 }
 
 function rng_get_byte() {
@@ -3226,7 +3227,9 @@ Hex.decode = function(a) {
 };
 
 // export globals
+/* NativeScript has no window or mouse
 window.Hex = Hex;
+ */
 })();
 // Base64 JavaScript decoder
 // Copyright (c) 2008-2013 Lapo Luchini <lapo@lapo.it>
@@ -3312,7 +3315,9 @@ Base64.unarmor = function (a) {
 };
 
 // export globals
+/* NativeScript has no window or mouse
 window.Base64 = Base64;
+ */
 })();
 // ASN.1 JavaScript decoder
 // Copyright (c) 2008-2013 Lapo Luchini <lapo@lapo.it>
@@ -3847,7 +3852,9 @@ ASN1.test = function () {
 };
 
 // export globals
+/* NativeScript has no window or mouse
 window.ASN1 = ASN1;
+ */
 })();
 /**
  * Retrieve the hexadecimal value (as a string) of the current ASN.1 element
@@ -4350,6 +4357,6 @@ JSEncrypt.prototype.getPublicKeyB64 = function () {
 };
 
 
-  JSEncrypt.version = '2.3.2';
+  JSEncrypt.version = '2.3.3';
   exports.JSEncrypt = JSEncrypt;
 });
