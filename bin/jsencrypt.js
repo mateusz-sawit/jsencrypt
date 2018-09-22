@@ -1,4 +1,4 @@
-/*! JSEncrypt v2.3.5 | https://npmcdn.com/jsencrypt@2.3.5/LICENSE.txt */
+/*! JSEncrypt v2.3.6 | https://npmcdn.com/jsencrypt@2.3.6/LICENSE.txt */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD
@@ -3179,13 +3179,12 @@ JSX.extend(KJUR.asn1.DERTaggedObject, KJUR.asn1.ASN1Object);
 // ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 // OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-var Hex;
+var Hex = {};
 /*jshint browser: true, strict: true, immed: true, latedef: true, undef: true, regexdash: false */
 (function (undefined) {
 "use strict";
 
-var Hex = {},
-    decoder;
+var decoder;
 
 Hex.decode = function(a) {
     var i;
@@ -3247,13 +3246,12 @@ window.Hex = Hex;
 // ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 // OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-var Base64;
+var Base64 = {};
 /*jshint browser: true, strict: true, immed: true, latedef: true, undef: true, regexdash: false */
 (function (undefined) {
 "use strict";
 
-var Base64 = {},
-    decoder;
+var decoder;
 
 Base64.decode = function (a) {
     var i;
@@ -3336,7 +3334,14 @@ window.Base64 = Base64;
 // ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 // OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-var ASN1;
+function ASN1(stream, header, length, tag, sub) {
+  this.stream = stream;
+  this.header = header;
+  this.length = length;
+  this.tag = tag;
+  this.sub = sub;
+};
+
 /*jshint browser: true, strict: true, immed: true, latedef: true, undef: true, regexdash: false */
 /*global oids */
 (function (undefined) {
@@ -3515,13 +3520,13 @@ var ASN1;
     return s;
   };
 
-  function ASN1(stream, header, length, tag, sub) {
+  /*function ASN1(stream, header, length, tag, sub) {
     this.stream = stream;
     this.header = header;
     this.length = length;
     this.tag = tag;
     this.sub = sub;
-  }
+  }*/
 
   ASN1.prototype.typeName = function () {
     if (this.tag === undefined)
@@ -4402,6 +4407,6 @@ JSEncrypt.prototype.getPublicKeyB64 = function () {
 };
 
 
-  JSEncrypt.version = '2.3.5';
+  JSEncrypt.version = '2.3.6';
   exports.JSEncrypt = JSEncrypt;
 });
